@@ -120,12 +120,12 @@ sumTo(100) = 100 + 99 + ... = 5050*/
    console.log(sumToByLoop(100));
 }*/
 
-function sumTo(n: number): number { //точка выхода из рекурсии 1ое условие
-    if (n === 1) return n;
-    return n + sumTo(n - 1); //вызов функции самой себя с новыми данными 2ое условие
+function sumTo(n: number, acc: number): number { //точка выхода из рекурсии 1ое условие
+    if (n === 1) return n + acc;
+    return sumTo(n - 1, acc + n); //вызов функции самой себя с новыми данными 2ое условие
 }
 
-console.log(sumTo(100));
+console.log(sumTo(100, 0));
 
 
 // just a plug
