@@ -71,6 +71,10 @@ console.log(counter());
 console.log(counter());
 console.log(counter());
 console.log(counter());  //вывод 1, 2, 3, 4 итд
+const counter2 = makeCounter();
+console.log(counter2()); // начнет счет сначала. Создается свой объект лексического окружения
+console.log(counter2());
+console.log(counter2());
 
 // Task 03
 // Переписать функцию из Task 02 так, что бы она принимала число в качестве аргумента и это число было стартовым значением счетчика
@@ -97,6 +101,32 @@ console.log(counter());  //вывод 1, 2, 3, 4 итд
 
 // Task 06
 // написать функцию, которая повторяет функционал метода flat массива на всю глубину.
+
+
+//Recursion (рекурсия)
+/*sumTo(1) = 1               //можно решить через цикл, он будет работать быстрее, чем рекурсия
+sumTo(2) = 2 + 1 = 3
+sumTo(3) = 3 + 2 + 1 = 6
+...
+sumTo(100) = 100 + 99 + ... = 5050*/
+
+/*function sumToByLoop(n: number) { //при помощи цикла
+    let result = 0;
+    for (let i = 1; i <= n; i++) {
+        result += 1;
+    }
+    return result;
+   }
+   console.log(sumToByLoop(100));
+}*/
+
+function sumTo(n: number): number { //точка выхода из рекурсии 1ое условие
+    if (n === 1) return n;
+    return n + sumTo(n - 1); //вызов функции самой себя с новыми данными 2ое условие
+}
+
+console.log(sumTo(100));
+
 
 // just a plug
 export default () => {
