@@ -20,7 +20,7 @@ console.log("lesson 2");
 // https://learn.javascript.ru/recursion
 // https://www.youtube.com/watch?v=Kuq6oIN3PH0
 
-let globalScope = {
+/*let globalScope = {
     outerScope: null,
     sum: "function",
 }
@@ -35,11 +35,20 @@ function sum(a: number) {
             outerScope: sumScope,
             b: undefined
         }
+        console.log(a + b) //в лексическом окружении есть ссылка на внешний уровень. a поднимается наверх, находит "это а" и, соответственно складывает.
     }
-}
+}*/
+
+/*sum(10)(5);*/
 
 // Task 01
 // Реализовать функцию sum которая суммирует 2 числа следующим образом sum(3)(6) === 9
+
+function sum(a: number) {
+    return function (b: number) {
+        return a + b;
+    }
+}
 
 // Task 02
 // Реализовать функцию makeCounter которая работает следующим образом:
